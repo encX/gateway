@@ -3,11 +3,30 @@ version: "3.6"
 services:
 
   # GRAPHQL GATEWAY API
-  gatewayapi:
+  # gatewayapi:
+  #   container_name: gateway_gatewayapi
+  #   image: gatewayapi
+  #   build:
+  #     context: ./gw-service/GatewayApi
+  #     dockerfile: ./Dockerfile
+  #   environment:
+  #     - ASPNETCORE_ENVIRONMENT=Release
+  #     - ASPNETCORE_URLS=http://+:5050;
+  #   ports:
+  #     - "5050:5050"
+  #     - "10851:10851"
+  #   expose:
+  #     - "5050"
+  #     - "10851"
+  #   depends_on:
+  #     - tagsapi
+  #     - likesapi
+
+  gatewayapi2:
     container_name: gateway_gatewayapi
     image: gatewayapi
     build:
-      context: ./gw-service/GatewayApi
+      context: ../src2/GatewayApi
       dockerfile: ./Dockerfile
     environment:
       - ASPNETCORE_ENVIRONMENT=Release
@@ -20,7 +39,6 @@ services:
       - "10851"
     depends_on:
       - tagsapi
-      - likesapi
 
   # WEBAPI MONGODB
   tagsapi:
