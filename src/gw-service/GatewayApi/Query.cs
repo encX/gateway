@@ -12,4 +12,9 @@ public class Query
     {
         return await service.TagAllAsync(cancellationToken);
     }
+    
+    public Tag GetTag()
+    {
+        return new Tag { Name = "HotChocolate" };
+    }
 }
